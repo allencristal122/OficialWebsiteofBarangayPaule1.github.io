@@ -1,0 +1,772 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    color: #000;
+    background-size: cover;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    display: flex;
+    background: rgba(255, 255, 255, 0.9); 
+    align-items: center;
+    padding: 20px;
+    justify-content: space-between;
+    transition: backdrop-filter 0.3s ease; 
+    backdrop-filter: blur(8px);
+}
+
+.logo {
+    display: flex;
+    align-items: center; /* Center items vertically */
+    text-decoration: none; /* Remove underline from anchor tag */
+    color: black; /* Set text color */
+    font-weight: 600; /* Set font weight */
+    font-size: 25px; /* Set font size */
+    cursor: default; /* Set cursor style */
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+}
+
+.logo img {
+    margin-left: 30px; /* Add margin to separate image from text */
+}
+
+.logo h2{
+    margin-left: 30px;
+}
+
+.hamburger {
+    display: none;
+}
+
+.navigation {
+    margin-right: 25px; /* Pushes navigation links to the left */
+}
+
+.navigation a {
+    display: inline-block;
+    color: #000;
+    font-size: 25px;
+    margin-left: 35px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: 0.5s;
+    opacity: 0; /* Changed opacity to 1 */
+    margin-right: 15px;
+    animation: slideTop .5s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+
+.navigation a:hover {
+    color: white;
+    background-color: #00aaff;
+    padding: 12px;
+    border-radius: 30px;
+}
+.before-line {
+    position: relative;
+    padding-left: 90px;
+    font-size: 20px;
+  }
+  .before-line:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 10%;
+    height: 3px;
+    background-color: #00aaff; /* Adjust as needed */
+    z-index: -1;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown button {
+    display: inline-block;
+    color: #000;
+    font-size: 25px;
+    margin-left: 35px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: 0.5s;
+    opacity: 1;
+    margin-right: 15px;
+    animation: slideTop .5s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dropdown button i{
+    color: #000;
+    font-size: 15px;
+  }
+
+  .dropdown button:hover{
+    color: white;
+    background-color: #00aaff;
+    padding: 12px;
+    border-radius: 30px;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%; /* Adjust dropdown position */
+    left: 0; /* Align dropdown with button */
+    color: #fff;
+    margin-left: 30px;
+    text-align: center;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 8px;
+    border-top: 4px solid #00aaff;
+  }
+
+  .dropdown-content a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #F4B400;
+    color: #000;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+.GenInfo {
+    width: 95%;
+    height: 88vh;
+    position: relative;
+    justify-content: center; /* Center content horizontally */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    padding: 70px 10% 0;
+    align-items: center;
+    background-image: url(images/cover.jpeg);
+    border-radius: 20px; /* Adjust the value to change the roundness */
+    margin-left: auto; /* Center the element horizontally */
+    margin-right: auto; /* Center the element horizontally */
+    margin-top: 110px; /* Add margin-top to create space between header and home */
+}
+
+
+/* Create the gray transparent overlay using ::after pseudo-element */
+.GenInfo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(46, 46, 46, 0.5); /* Dark gray background with transparency */
+    z-index: 1; /* Ensure the overlay is above the background image */
+    border-radius: 20px;
+}
+
+
+/* Heading container styles */
+.hc {
+    max-width: 600px;
+    color: white;
+    position: relative;
+    z-index: 2;
+    margin-top: -100px;
+}
+
+/* Heading styles */
+.hc h3 {
+    font-size: 32px;
+    font-weight: 700;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: .7s;
+    line-height: 30px;
+    margin-top: -15px;
+    animation-delay: .7s;
+    margin-left: -70px;
+}
+
+.hc h3:nth-of-type(2){
+    margin-bottom: 30px;
+    animation: slideTop 1s ease forwards;
+}
+
+.hc h3 span{
+    color: #cf9fff;
+    border-color: black;
+}
+
+.hc h1 {
+    font-size: 56px;
+    margin-top: 20px;
+    margin: -3px 0;
+    font-weight: 700;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 1s;
+    margin-left: -70px;
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+
+.hc p {
+    font-size: 20px;
+    line-height: 30px;
+    opacity: 0;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: 1s;
+    margin-left: -70px;
+    text-align: justify;
+}
+
+.picture {
+    flex: 1;
+    text-align: right;
+    margin-right: -60px; 
+    margin-top: -60px;
+    animation: slideLeft 1s ease forwards;
+    margin-left: -100px; /* Negative margin to overlap */
+    position: relative; /* Ensure positioning */
+    z-index: 2; /* Ensure the picture is above the overlay */
+}
+
+/* Picture image styles */
+.picture img {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    border: 7.5px solid white; /* White border */
+    box-shadow: 
+        0 0 20px rgba(0, 0, 0, 0.5), /* Dark shadow */
+        0 0 40px rgba(80, 79, 79, 0.7); /* White shadow */
+    background: radial-gradient(violet, skyblue, #f5a9bc);
+}
+
+/* Create the gray transparent overlay using ::after pseudo-element */
+.GenInfo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Ensure the overlay is above the background image */
+    border-radius: 20px; /* Rounded square */
+}
+
+/* Social link styles */
+.hs a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    color: #cf9fff;
+    height: 60px;
+    background: transparent;
+    border: 2px solid #cf9fff;
+    border-radius: 50%;
+    margin: 30px 15px 30px 0;
+    text-decoration: none;
+    transition: .7s ease;
+    opacity: 0;
+    margin: 100px;
+    margin-left: -70px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+    animation: slideLeft 1s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+
+/* Social link hover styles */
+.hs a:hover {
+    background: #cf9fff;
+    color: black;
+    box-shadow: 0 0 20px #cf9fff;
+}
+
+/* Button box styles */
+.button_box{
+    display: flex;
+    padding: 12px 28px;
+    background: #00aaff;
+    border-radius: 40px;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: black;
+    text-decoration: none;
+    font-weight: 300;
+    margin-top: 15px;
+    animation: slideTop 1s ease forwards;
+    transition: .7s ease;
+    margin-left: -70px;
+    color: white;
+    width: 252px;
+    height: 50px;
+    text-align: center;
+}
+
+.button_box p{
+    text-align: center;
+    margin-left: 0px;
+}
+
+.button_box i{
+    margin-left: 10px;
+}
+
+.button_box:hover{
+    color: black;
+    background-color: #F4B400;
+}
+
+.button_box:active {
+    color: black;
+    background-color: white;
+}
+
+.introduction {
+    width: 95%;
+    height: 88vh;
+    position: relative;
+    justify-content: space-between;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    padding: 70px 10% 0;
+    align-items: center;
+    margin-top: -20px;
+    margin-bottom: 120px;
+}
+
+.hc1 {
+    max-width: 600px;
+    margin-left: -20px;
+    margin-top: -70px;
+}
+
+.hc1 h3 {
+    font-size: 40px;
+    font-weight: 700;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: .7s;
+    line-height: 1cm;
+    margin-top: 25px;
+    animation-delay: .7s;
+    color: #000;
+}
+
+.hc1 h3:nth-of-type(2){
+    margin-bottom: 30px; 
+    animation: slideTop 1s ease forwards;
+}
+
+.hc1 h3 span{
+    color: #cf9fff;
+    border-color: black;
+}
+
+.hc1 p {
+    font-size: 24px;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 1s;
+    text-align: justify;
+    margin-right: -90px; /* Removed margin-right */
+    line-height: 50px;
+}
+
+.picture1 {
+    margin-right: 200px; /* Move picture to the right */
+    padding-right: 20px; /* Adjusted padding-right */
+    text-align: right; /* Adjusted text-align */
+    margin-top: -50px;
+    animation: slideRight 1s ease forwards;
+}
+
+/* Picture image styles */
+.picture1 img {
+    width: 500px;
+    height: 500px;
+    border: 7.5px solid black; /* White border */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 1);
+    background: radial-gradient(violet, skyblue, #f5a9bc);
+    margin-left: -20px;
+    margin-top: -20px;
+    border-radius: 8px;
+}
+
+.misvis {
+    width: 95%;
+    height: 130vh;
+    position: relative;
+    justify-content: center; 
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    padding: 70px 10% 0px;
+    align-items: center;
+    background-color: #00aaff;
+    border-radius: 20px; /* Adjust the value to change the roundness */
+    margin: 110px auto 0; /* Center the container horizontally and add margin-top */
+    text-align: center;
+    flex-direction: column;
+    margin-top: -100px;
+    align-items: center;
+}
+
+.misvis .hc1{
+    font-size: 40px;
+    font-weight: 700;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: .7s;
+    line-height: 1cm;
+    margin-top: -50px;
+    animation-delay: .7s;
+    color: #000;
+    text-align: center;
+    justify-content: center;
+}
+
+.misvis .p1{
+    font-size: 24px;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 1s;
+    text-align: justify;
+    line-height: 50px;
+    margin-top: 10px;
+}
+
+.misvis .p2{
+    font-size: 24px;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 1s;
+    text-align: justify;
+    line-height: 50px;
+    margin-top: 10px;
+}
+
+.misvis .hc3{
+    font-size: 40px;
+    font-weight: 700;
+    opacity: 0;
+    animation: slideBottom 1s ease forwards;
+    animation-delay: .7s;
+    line-height: 1cm;
+    margin-top: 50px;
+    animation-delay: .7s;
+    color: #000;
+    text-align: center;
+    justify-content: center;
+}
+
+.misvis hr {
+    width: 1200px;
+    opacity: 0;
+    animation: slideRight 1s ease forwards; /* Animation */
+    position: absolute; /* Position absolutely */
+    top:505px; /* Adjust as needed */
+    left: 50%; /* Align horizontally to center */
+    transform: translateX(-50%); /* Adjust horizontally to center */
+    text-align: center; /* Center text within the <hr> element */
+    margin-left: -595px; /* Adjust left margin to offset half of the width */
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+}
+
+.population{
+    width: 95%;
+    height: 72vh;
+    position: relative;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    padding: 70px 10% 0;
+    align-items: center;
+    margin-top: 0px;
+    margin-bottom: 120px;
+    color: #000;
+    margin-left: 50px;
+    text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.population h3 {
+    font-size: 40px;
+    margin-bottom: 20px; /* Bottom margin */
+    opacity: 0;
+    animation: slideRight 1s ease forwards; /* Animation */
+    position: absolute; /* Position absolutely */
+    top: 50px; /* Adjust as needed */
+    transform: translateX(-50%); /* Adjust horizontally to center */
+    text-align: center;
+}
+
+.population .p1 {
+    font-size: 24px;
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+    animation-delay: 1s;
+    text-align: justify;
+    align-items: center;
+    justify-content: center;
+    line-height: 50px;
+    margin-top: 120px;
+}
+
+.population .p2 {
+    width: 500px;
+    margin: 0 auto;
+    margin-bottom: 20px; /* Bottom margin */
+    opacity: 0;
+    animation: slideRight 1s ease forwards; /* Animation */
+    position: absolute; /* Position absolutely */
+    top: 110px; /* Adjust as needed */
+    transform: translateX(-50%); /* Adjust horizontally to center */
+    text-align: center;/* Adjust left margin to offset half of the width */
+    font-size: 18px;
+}
+
+.population hr {
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 20px; /* Bottom margin */
+    opacity: 0;
+    animation: slideRight 1s ease forwards; /* Animation */
+    position: absolute; /* Position absolutely */
+    top: 160px; /* Adjust as needed */
+    transform: translateX(-50%); /* Adjust horizontally to center */
+    text-align: center; /* Center text within the <hr> element */
+    font-weight: bold;
+}
+
+.container {
+    display: flex;
+    margin: 0 auto;
+    margin-top: 30px;
+}
+.population table {
+    border-collapse: collapse;
+    text-align: center;
+    margin: 0 auto;
+    align-items: center;
+    justify-content: center;
+}
+.population table, th, td {
+    border: none;
+}
+
+th, td {
+    padding: 10px;
+    width: 550px;
+    height: 50px;
+}
+
+th{
+    background-color: #00aaff;
+    color: #fff;
+    font-size: 25px;
+}
+
+.tr1{
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.tr2{
+    font-size: 18px;
+}
+
+.economy {
+    width: 95%;
+    height: 110vh;
+    position: relative;
+    justify-content: center; /* Center content horizontally */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    padding: 70px 10% 0;
+    align-items: center;
+    background-color: #00aaff;
+    border-radius: 20px; /* Adjust the value to change the roundness */
+    margin-left: auto; /* Center the element horizontally */
+    margin-right: auto; /* Center the element horizontally */
+    margin-top: 210px; /* Add margin-top to create space between header and home */
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.economy h3 {
+    font-size: 40px;
+    margin-bottom: 20px; /* Bottom margin */
+    opacity: 0;
+    animation: slideRight 1s ease forwards; /* Animation */
+    position: absolute; /* Position absolutely */
+    top: 50px; /* Adjust as needed */
+    transform: translateX(-50%); /* Adjust horizontally to center */
+    text-align: center;
+}
+
+.economy .p2 {
+    width: 500px;
+    margin-bottom: 20px; /* Bottom margin */
+    opacity: 0;
+    animation: slideRight 1s ease forwards; /* Animation */
+    position: absolute; /* Position absolutely */
+    top: 110px; /* Adjust as needed */
+    left: 50%; /* Align horizontally to center */
+    transform: translateX(-50%); /* Adjust horizontally to center */
+    text-align: center;
+    margin-left: -245px; /* Adjust left margin to offset half of the width */
+    font-size: 18px;
+}
+
+.economy hr {
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 20px; /* Bottom margin */
+    opacity: 0;
+    animation: slideRight 1s ease forwards; /* Animation */
+    position: absolute; /* Position absolutely */
+    top: 160px; /* Adjust as needed */
+    transform: translateX(-50%); /* Adjust horizontally to center */
+    text-align: center; /* Center text within the <hr> element */
+    font-weight: bold;
+}
+
+.table {
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px !important;
+    box-shadow: 0 0 7px #000;
+    margin-top: 90px;
+}
+
+.icon-circle {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    background-color: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    margin-top: 40px;
+}
+
+.icon-circle i {
+    font-size: 80px;
+    color: #ededed;
+}
+
+.table th {
+    font-size: 26px;
+    border: 5px solid black !important; /* Border for table header */
+    padding: 10px; /* Adjust padding as needed */
+    color: #00aaff;
+    margin-top: -40px;
+}
+
+.table td {
+    border: 5px solid black !important; /* Border for table cells */
+    height: 300px; /* Adjust the height as needed */
+    vertical-align: middle; /* Align text vertically */
+    width: 400px;
+    padding: 10px; /* Adjust padding as needed */
+    border-radius: 8px !important;
+    font-size: 22px;
+}
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    font-size: 24px;
+    margin-top: 30px;
+    opacity: 0;
+    animation: slideTop .5s ease forwards;
+    margin-top: 30px;
+    height: 70px;
+}
+
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes slideTop {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes slideBottom {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}

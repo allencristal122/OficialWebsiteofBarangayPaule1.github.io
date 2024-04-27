@@ -1,0 +1,567 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    color: #000;
+    background-size: cover;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    display: flex;
+    background: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+    align-items: center;
+    padding: 20px;
+    justify-content: space-between;
+    transition: backdrop-filter 0.3s ease; /* Smooth transition for blur effect */
+    backdrop-filter: blur(8px); /* Initial blur: no blur */
+}
+
+.logo {
+    display: flex; /* Use flexbox for layout */
+    align-items: center; /* Center items vertically */
+    text-decoration: none; /* Remove underline from anchor tag */
+    color: black; /* Set text color */
+    font-weight: 600; /* Set font weight */
+    font-size: 25px; /* Set font size */
+    cursor: default; /* Set cursor style */
+    opacity: 0;
+    animation: slideRight 1s ease forwards;
+}
+
+.logo img {
+    margin-left: 30px; /* Add margin to separate image from text */
+}
+
+.logo h2{
+    margin-left: 30px;
+}
+
+/* Hamburger styles */
+.hamburger {
+    display: none;
+}
+
+.navigation {
+    margin-right: 25px; /* Pushes navigation links to the left */
+}
+
+.navigation a {
+    display: inline-block;
+    color: #000;
+    font-size: 25px;
+    margin-left: 35px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: 0.5s;
+    opacity: 0; 
+    margin-right: 15px;
+    animation: slideTop .5s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+}
+
+.navigation a:hover {
+    color: white;
+    background-color: #00aaff;
+    padding: 12px;
+    border-radius: 30px;
+}
+
+.before-line {
+    position: relative;
+    padding-left: 90px;
+    font-size: 20px;
+  }
+  .before-line:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 10%;
+    height: 3px;
+    background-color: #00aaff; /* Adjust as needed */
+    z-index: -1;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown button {
+    display: inline-block;
+    color: #000;
+    font-size: 25px;
+    margin-left: 35px;
+    font-weight: 400;
+    text-decoration: none;
+    transition: 0.5s;
+    opacity: 1;
+    margin-right: 15px;
+    animation: slideTop .5s ease forwards;
+    animation-delay: calc(.2s * var(--i));
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  .dropdown button i{
+    color: #000;
+    font-size: 15px;
+  }
+
+  .dropdown button:hover{
+    color: white;
+    background-color: #00aaff;
+    padding: 12px;
+    border-radius: 30px;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    top: 100%; /* Adjust dropdown position */
+    left: 0; /* Align dropdown with button */
+    color: #fff;
+    margin-left: 30px;
+    text-align: center;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 8px;
+    border-top: 4px solid #00aaff;
+  }
+
+  .dropdown-content a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    font-size: 15px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #F4B400;
+    color: #000;
+  }
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .certificate {
+    width: 95%;
+    height: 135vh;
+    position: relative;
+    justify-content: center; /* Center content horizontally */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    padding: 70px 10% 0px;
+    align-items: center;
+    background-color: #fff;
+    border-radius: 20px; /* Adjust the value to change the roundness */
+    margin: 0 auto;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 100px;
+}
+
+.h31 {
+    font-size: 40px;
+    margin: 0 auto;
+    margin-bottom: 20px; /* Bottom margin */
+    opacity: 0;
+    animation: slideRight 1s ease forwards; /* Animation */
+    position: absolute; /* Position absolutely */
+    top: 50px; /* Adjust as needed */
+    transform: translateX(-50%); /* Adjust horizontally to center */
+    text-align: center;
+    justify-content: center;
+}
+
+.h32{
+    font-size: 35px;
+    margin: 0 auto;
+    margin-bottom: 20px; /* Bottom margin */
+    opacity: 0;
+    animation: slideRight 1s ease forwards; /* Animation */
+    position: absolute; /* Position absolutely */
+    top: 180px; /* Adjust as needed */
+    transform: translateX(-50%); /* Adjust horizontally to center */
+    text-align: center;
+    justify-content: center;
+    color: #00aaff;
+}
+
+.certificate p {
+    width: 500px;
+    margin: 0 auto;
+    margin-bottom: 20px; /* Bottom margin */
+    opacity: 0;
+    animation: slideRight 1s ease forwards; /* Animation */
+    position: absolute; /* Position absolutely */
+    top: 110px; /* Adjust as needed *//* Align horizontally to center */
+    transform: translateX(-50%); /* Adjust horizontally to center */
+    text-align: center;
+    font-size: 18px;
+}
+
+.certificate hr {
+    width: 1200px;
+    margin: 0 auto;
+    margin-bottom: 20px; /* Bottom margin */
+    opacity: 0;
+    animation: slideRight 1s ease forwards; /* Animation */
+    position: absolute; /* Position absolutely */
+    top: 160px; /* Adjust as needed */
+    transform: translateX(-50%); /* Adjust horizontally to center */
+    text-align: center; /* Center text within the <hr> element */
+    font-weight: bold;
+}
+
+.container{
+    display: flex;
+}
+
+  .box {
+    border: 3px none #000;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    width: 550px;
+  }
+
+  .box a{
+    text-decoration: none;
+  }
+
+  .box a h2 {
+    margin-top: 0;
+    margin-left: 0;
+    text-align: left;
+    font-size: 26px;
+    color: #000;
+  }
+  
+  .box ul {
+    list-style-type: none;
+    padding: 0;
+    justify-content: center;
+    text-align: justify;
+    margin-top: 20px;
+  }
+  
+  .box ul li {
+    margin-bottom: 10px;
+  }
+  
+  .box .a1 {
+    display: block;
+    margin-top: 15px;
+    background-color: #e0e0e0;
+    color: #00aaff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 60px;
+    transition: 0.5s ease;
+  }
+  
+  .box a:hover {
+    background-color: #0056b3;
+    color: #fff;
+  }
+  
+/* Footer styles */
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    font-size: 24px;
+    margin-top: 30px;
+    opacity: 0;
+    animation: slideTop .5s ease forwards;
+    margin-top: -30px;
+    height: 70px;
+}
+
+
+/* Keyframe animations */
+@keyframes slideRight {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes slideLeft {
+    0% {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateX(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes slideTop {
+    0% {
+        transform: translateY(100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+@keyframes slideBottom {
+    0% {
+        transform: translateY(-100px);
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+    /* Center alignment for various elements */
+    .logo,
+    .home,
+    .hc,
+    .hc h3,
+    .hc p,
+    .picture {
+        text-align: center;
+    }
+    
+    /* Logo styles for smaller screens */
+    .logo {
+        text-align: center;
+        margin-left: 30px;
+        margin-right: 30px;
+        color: #fff;
+        font-weight: 600;
+        font-size: 25px;
+        text-decoration: none;
+        cursor: default;
+        opacity: 0;
+        animation: slideRight 1s ease forwards;
+    }
+
+    /* Hamburger menu icon styles */
+    .hamburger {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 101; /* Ensure it's above the navigation */
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 30px;
+        height: 20px;
+        background-color: transparent;
+        border: none;
+    }
+
+    /* Hamburger menu bar styles */
+    .hamburger .bar {
+        width: 100%;
+        height: 3px;
+        background-color: #fff;
+        transition: all 0.3s ease;
+    }
+
+    /* Additional styles for active (open) hamburger menu */
+    .hamburger.active .bar:nth-child(2) {
+        opacity: 0; /* Hide middle bar when active */
+    }
+
+    .hamburger.active .bar:first-child {
+        transform: translateY(8px) rotate(45deg); /* Rotate first bar */
+    }
+
+    .hamburger.active .bar:last-child {
+        transform: translateY(-8px) rotate(-45deg); /* Rotate last bar */
+    }
+
+    /* Navigation links for smaller screens */
+    .navigation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 70%;
+        background-color: #000;
+        padding-top: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        transform: translateX(-100%);
+        transition: transform 0.3s ease;
+    }
+
+    /* Show navigation links when active (open) */
+    .navigation.active {
+        transform: translateX(0%);
+    }
+
+    /* Navigation link styles */
+    .navigation a {
+        color: #fff;
+        font-size: 25px;
+        margin: 20px;
+        text-decoration: none;
+    }
+    
+    /* Home section styles for smaller screens */
+    .home {
+        padding: 5% 70px 0;
+        margin-top: 150px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin-bottom: 40px;
+        height: 100vh;
+        position: relative; 
+    }
+    
+    /* Heading styles for smaller screens */
+    .hc h3 {
+        font-size: 25px;
+        font-weight: 700;
+        opacity: 0;
+        animation: slideBottom 1s ease forwards;
+        animation-delay: .7s;
+        margin-top: -10px;
+        animation-delay: .7s;
+        margin-right: 0; 
+        line-height: 40px;
+        padding-left: 70px;
+    }
+    
+    /* Heading 1 styles for smaller screens */
+    .hc h1{
+        font-size: 36px;
+        margin-top: 20px;
+        margin: -3px 0;
+        font-weight: 700;
+        opacity: 0;
+        animation: slideRight 1s ease forwards;
+        animation-delay: 1s;
+        margin-left: auto; 
+        margin-right: auto;
+        margin-top: 5px;
+        margin-bottom: 2px;
+    }
+    
+    /* Paragraph styles for smaller screens */
+    .hc p {
+        font-size: 20px;
+        line-height: 1cm;
+        opacity: 0;
+        animation: slideRight 1s ease forwards;
+        animation-delay: 1s;
+        text-align: justify;
+        margin-bottom: 20px;
+        margin-left: 0;
+        text-align: justify;
+        margin-top: 360px;
+    }
+    
+    /* Picture styles for smaller screens */
+    .picture {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin-top: -80px;
+        margin-left: -215px;
+        margin-bottom: 100px;
+    }
+    
+    /* Picture image styles for smaller screens */
+    .picture img {
+        width: 240px;
+        max-width: 500px;
+        height: 280px;
+        border-radius: 50%;
+        border: 10px solid #cf9fff;
+        box-shadow: 0 0 20px rgba(125, 60, 255, 0.5),
+                    0 0 40px rgba(60, 177, 255, 0.7),
+                    0 0 80px rgba(125, 60, 255, 0.7),
+                    0 0 120px rgba(60, 177, 255, 0.7);
+        background: radial-gradient(violet, skyblue, #f5a9bc);
+    }
+    
+    /* Social link styles for smaller screens */
+    .hs a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        color: #cf9fff;
+        height: 60px;
+        background: transparent;
+        border: 2px solid #cf9fff;
+        border-radius: 50%;
+        margin: 30px auto 15px;
+        text-decoration: none;
+        transition: .7s ease;
+        opacity: 0;
+        animation: slideLeft 1s ease forwards;
+        animation-delay: calc(.2s * var(--i));
+        margin: 10px;
+    }
+    
+    /* Button box styles for smaller screens */
+    .button_box {
+        display: block;
+        margin: 0 auto;
+        padding: 12px 28px;
+        background: #cf9fff;
+        border-radius: 40px;
+        font-size: 16px;
+        letter-spacing: 1px;
+        color: black;
+        text-decoration: none;
+        font-weight: 600;
+        margin-top: 15px;
+        animation: slideTop 1s ease forwards;
+        transition: .7s ease;
+        width: 5cm;
+        margin-bottom: 80px;
+    }
+}
